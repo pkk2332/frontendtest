@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
 import { AppBar, Toolbar, IconButton, Button, Typography, Box } from '@material-ui/core';
 import { useStore } from '../store/store';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
 
 
 const Navbar = () => {
-    const [state,] = useStore(0)
+    const [state,dispatch] = useStore(0)
     console.log(state)
+    const handleLogout = ()=>{
+        return dispatch({type:'removeUser'})
+    }
     return (
         <React.Fragment>
             <AppBar position="static">
@@ -25,12 +29,14 @@ const Navbar = () => {
                     {
                         !state.user ? (
                             <Box ml="auto">
-                                <Button color="inherit">Login</Button>
+                                <Button color="inherit">
+                                    <NavLink to="/login">Login</NavLink>
+                                    </Button>
                             </Box>
                             )
                         :
                         <Box ml="auto">
-                        <Button color="inherit">Logout</Button>
+                        <Button onClick={()=>handleLogout()} color="inherit">Logout</Button>
                          </Box>
                     }
 

@@ -11,10 +11,12 @@ function App() {
     <div className="App">
               {/* <Router> */}
       <Store>
+          <Router>
           <Navbar/>
           <Container fixed >
           <Routes/>
           </Container>
+          </Router>
       </Store>
       {/* </Router> */}
 

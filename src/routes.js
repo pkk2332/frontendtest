@@ -2,7 +2,7 @@ import React from 'react'
 import { useStore } from './store/store'
 import Home from './pages/home'
 import Login from './pages/login'
-import {Switch,Route,Redirect,BrowserRouter as Router} from 'react-router-dom'
+import {Switch,Route,Redirect} from 'react-router-dom'
 
 
 
@@ -11,7 +11,6 @@ const Routes = ()=> {
     const [state,]= useStore()
     console.log(!!state.user)
     return (
-        <Router>
         <Switch>
         
         <Route exact path="/login" 
@@ -30,7 +29,6 @@ const Routes = ()=> {
         <PrivateRoute path='/home'  exact component={Home} />
     
       </Switch>
-      </Router>
     )
 
 }
